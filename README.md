@@ -49,7 +49,7 @@ https://api.frankfurter.app/latest?from=USD
 }
 ```
 
-## Wireframes
+## Wireframes AND Components
 
 Upload images of wireframe to imgur and add the link here with a description of the specific wireframe. Do not include the actual image and have it render on the page.
 |(https://wireframepro.mockflow.com/editor.jsp?editor=on&publicid=Mf99b0a05737aa0032c5d175e4a02498d1593171215027&perm=Create&projectid=Mbe95984f5fb130da86a0e0e70937efe31593171236979&ptitle=Project2&bgcolor=white&category=featured#/page/9d7d49f1434f48b18abb60d2385978e8)|
