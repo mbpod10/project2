@@ -27,11 +27,16 @@
 .currency-container {
   display: flex;
   flex-direction: row;
-  margin-left: 30px;
+  padding-left: 30px;
 }
 
 .App-link {
   color: #61dafb;
+}
+.nav-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 @keyframes App-logo-spin {
