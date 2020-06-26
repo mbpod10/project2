@@ -11,15 +11,15 @@ const CurrencyList = () => {
         `https://api.frankfurter.app/latest?from=${symbol}`
       );
       const data = await res.json();
-      console.log("data", data);
-      console.log("date", data.date);
+      //console.log("data", data);
+      //console.log("date", data.date);
       getDate(data.date);
       getCurrency(data.rates);
     };
     makeApiCall();
   }, []);
 
-  console.log("currency", currency);
+  //console.log("currency", currency);
 
   const currencyKeyArray = Object.keys(currency).map((element, index) => {
     return (
@@ -33,7 +33,7 @@ const CurrencyList = () => {
     return <h4 key={Math.floor(Math.random() * 10000)}>{element}</h4>;
   });
 
-  console.log(currencyValuesArray, currencyValuesArray);
+  //console.log(currencyValuesArray, currencyValuesArray);
 
   return (
     <>
