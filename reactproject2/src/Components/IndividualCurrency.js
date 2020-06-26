@@ -39,14 +39,14 @@ const IndividualCurrency = (props) => {
 
   const currencyKeyArray = Object.keys(currency).map((element, index) => {
     return (
-      <h4 key={Math.floor(Math.random() * 10000)}>
+      <h4 key={index}>
         <Link to={`/currencies/${element}`}>{element} </Link> / {symbol}:
       </h4>
     );
   });
 
   const currencyValuesArray = Object.values(currency).map((element, index) => {
-    return <h4 key={Math.floor(Math.random() * 10000)}>{element}</h4>;
+    return <h4 key={index}>{element}</h4>;
   });
 
   //console.log(currencyValuesArray, currencyValuesArray);

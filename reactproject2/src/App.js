@@ -5,6 +5,7 @@ import CurrencyList from "./Components/CurrencyList";
 import CurrencyHome from "./Components/CurrencyHome";
 import About from "./Components/About";
 import IndividualCurrency from "./Components/IndividualCurrency";
+import FormConverter from "./Components/FormConverter";
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
         </Link>
         <Link to="/currencies/">
           <h1>Currencies</h1>
+        </Link>
+        <Link to="/converter">
+          <h1>Currency Converter</h1>
         </Link>
       </nav>
       <main>
@@ -33,6 +37,11 @@ function App() {
             exact
             path="/currencies/:symbol"
             render={(routerProps) => <IndividualCurrency {...routerProps} />}
+          />
+          <Route
+            exact
+            path="/converter"
+            render={(routerProps) => <FormConverter {...routerProps} />}
           />
         </Switch>
       </main>
