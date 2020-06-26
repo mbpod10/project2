@@ -24,6 +24,11 @@
   color: white;
 }
 
+.currency-container {
+  display: flex;
+  flex-direction: row;
+}
+
 .App-link {
   color: #61dafb;
 }
