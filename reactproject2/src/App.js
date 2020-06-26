@@ -4,6 +4,7 @@ import "./App.css";
 import CurrencyList from "./Components/CurrencyList";
 import CurrencyHome from "./Components/CurrencyHome";
 import About from "./Components/About";
+import IndividualCurrency from "./Components/IndividualCurrency";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
         <Link to="/about">
           <h1>About</h1>
         </Link>
-        <Link to="/currencies">
+        <Link to="/currencies/">
           <h1>Currencies</h1>
         </Link>
       </nav>
@@ -25,8 +26,13 @@ function App() {
           <Route exact path="/about" component={About} />
           <Route
             exact
-            pather="/currencies"
+            path="/currencies/"
             render={(routerProps) => <CurrencyList {...routerProps} />}
+          />
+          <Route
+            exact
+            path="/currencies/:symbol"
+            render={(routerProps) => <IndividualCurrency {...routerProps} />}
           />
         </Switch>
       </main>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const CurrencyList = () => {
   const [currency, getCurrency] = useState([]);
@@ -23,7 +24,7 @@ const CurrencyList = () => {
   const currencyKeyArray = Object.keys(currency).map((element, index) => {
     return (
       <h4 key={Math.floor(Math.random() * 10000)}>
-        {element} / {symbol}:
+        <Link to={`/currencies/${element}`}>{element} </Link> / {symbol}:
       </h4>
     );
   });

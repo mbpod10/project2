@@ -52,7 +52,7 @@ https://api.frankfurter.app/latest?from=USD
 ## Wireframes AND Components
 
 Upload images of wireframe to imgur and add the link here with a description of the specific wireframe. Do not include the actual image and have it render on the page.
-Component|(https://i.imgur.com/YMZWks7.png)| WireFrame|(https://i.imgur.com/YMZWks7.png)|
+Component|(https://i.imgur.com/YMZWks7.png)| WireFrame|(https://i.imgur.com/UXZQLag.png)|
 
 ## Project Schedule
 
@@ -74,18 +74,24 @@ The functionality will then be divided into two separate lists: MPV and PostMVP.
 #### MVP
 
 - Pull data using api that allows forex to render on the page
-- Render data, info, on the page
-- Have different links
+- Render data, info, on the page (USD as default)
+- Have a nav bar on the left side of the screen
+- Allow the user to click in the nav and go straight to a certain currency (except home and about)
+- In the individual currency link, the user will see the currency and its exchange rates with other currencies
 - have a basic aesthetic design
-- have a lot of white space
+- make the application responsive
+- HAVE NAME OF CURRENCY AND COUNTRY RENDER ON SCREEN (probable post MVP-- not in dataset)
+- potentially allow the user to view historical data (probable post MVP)
 
 #### PostMVP
 
-- allow for history of prices
 - Allow people to preview their favorite forex searches
 - Have people able to contact me via website
 - Find data or algorithm that will allow signals in price disparities
 - make the webpage more interactive or even change its layout for better optimal viewership
+- find standard deviation movements in certain currencies based on historical price movements
+- have the flags of countries render next to their currencies
+- allow charts
 
 ## Functional Components
 
@@ -95,21 +101,22 @@ The functionality will then be divided into two separate lists: MPV and PostMVP.
 
 #### MVP
 
-| Component               | Priority | Estimated Time | Actual Time Invetsted | Time |
-| ----------------------- | :------: | :------------: | :-------------------: | :--: |
-| API Data Render         |    H     |     10hrs      |                       |  NA  |
-| Skeleton HTML           |    H     |      3hr'      |                       |  NA  |
-| Skeleton CSS for Mobile |    H     |     3hrs '     |                       |  NA  |
-| Hamburger               |    H     |      1hr       |                       |  NA  |
-|                         |    H     |     3hr '      |                       |  NA  |
-| Regular Nav             |    H     |      H '       |                       |  NA  |
-| Adding Form             |    H     |     3hr '      |                       |  NA  |
-| Other sections and flex |    M     |     4hr '      |                       |  NA  |
-|                         |    H     |     3hrs '     |                       |  NA  |
-| Responsive              |    H     |     3hr '      |                       |  NA  |
-| Social Media Icons      |    L     |     1hr '      |                       |  NA  |
-| Styling                 |    M     |     5hrs '     |                       |  NA  |
-| Total                   |    H     |     40hrs      |                       | -hrs |
+| Component                          | Priority | Estimated Time | Actual Time Invetsted | Time |
+| ---------------------------------- | :------: | :------------: | :-------------------: | :--: |
+| API Data Render                    |    H     |     10hrs      |                       |  NA  |
+| Skeleton HTML                      |    H     |      3hr'      |                       |  NA  |
+| Skeleton CSS for Mobile            |    H     |     3hrs '     |                       |  NA  |
+| Hamburger                          |    H     |      1hr       |                       |  NA  |
+| Individual Currency Render         |    H     |     3hr '      |                       |  NA  |
+| Regular Nav                        |    H     |      H '       |                       |  NA  |
+| Adding Form                        |    H     |     3hr '      |                       |  NA  |
+| Other sections and flex            |    M     |     4hr '      |                       |  NA  |
+| Country & Currency Name            |    H     |     3hrs '     |                       |  NA  |
+| Responsive                         |    H     |     3hr '      |                       |  NA  |
+| Social Media Icons                 |    L     |     1hr '      |                       |  NA  |
+| Have KEY AND VALUE RENDER TOGETHER |    M     |     5hrs '     |                       |  NA  |
+| Styling                            |    M     |     5hrs '     |                       |  NA  |
+| Total                              |    H     |     45hrs      |                       | -hrs |
 
 | React Componentss        |                       Description                        |
 | ------------------------ | :------------------------------------------------------: |
