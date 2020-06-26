@@ -52,7 +52,7 @@ https://api.frankfurter.app/latest?from=USD
 ## Wireframes
 
 Upload images of wireframe to imgur and add the link here with a description of the specific wireframe. Do not include the actual image and have it render on the page.
-|(url)|
+|(https://wireframepro.mockflow.com/editor.jsp?editor=on&publicid=Mf99b0a05737aa0032c5d175e4a02498d1593171215027&perm=Create&projectid=Mbe95984f5fb130da86a0e0e70937efe31593171236979&ptitle=Project2&bgcolor=white&category=featured#/page/9d7d49f1434f48b18abb60d2385978e8)|
 
 ## Project Schedule
 
@@ -60,7 +60,8 @@ Upload images of wireframe to imgur and add the link here with a description of 
 | ----- | -------------------------------------------------- | ---------- |
 | Day 1 | Project Description                                | inComplete |
 | Day 1 | Wireframes / Priority Matrix / Timeline /WorkSheet | inComplete |
-| Day 1 | Get Google Sheets Responsive                       | inComplete |
+| Day 1 | Get Data To Render Responsive                      | inComplete |
+| Day 2 | Get Links To Different Currencies                  | inComplete |
 | Day 3 | Core Application Structure (HTML, CSS, etc.)       | inComplete |
 | Day 4 | MVP & Bug Fixes                                    | inComplete |
 | Day 5 | Final Touches                                      | inComplete |
@@ -74,6 +75,7 @@ The functionality will then be divided into two separate lists: MPV and PostMVP.
 
 - Pull data using api that allows forex to render on the page
 - Render data, info, on the page
+- Have different links
 - have a basic aesthetic design
 - have a lot of white space
 
@@ -108,6 +110,21 @@ The functionality will then be divided into two separate lists: MPV and PostMVP.
 | Social Media Icons      |    L     |     1hr '      |                       |  NA  |
 | Styling                 |    M     |     5hrs '     |                       |  NA  |
 | Total                   |    H     |     40hrs      |                       | -hrs |
+
+| React Componentss        |                       Description                        |
+| ------------------------ | :------------------------------------------------------: |
+| App                      |           Set Up App that allows Route Render            |
+| Nav                      | Acts as header that has links to different parts of page |
+| Footer                   |              footer that also allows links               |
+| Main                     |                 main currency rendering                  |
+| Individual Currency Link |       Link to individual currency and their rates        |
+| Adding Form              |                            H                             |
+| Other sections and flex  |                            M                             |
+|                          |                            H                             |
+| Responsive               |                            H                             |
+| Social Media Icons       |                            L                             |
+| Styling                  |                            M                             |
+| Total                    |                            H                             |
 
 #### PostMVP
 
