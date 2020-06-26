@@ -52,7 +52,7 @@ https://api.frankfurter.app/latest?from=USD
 ## Wireframes AND Components
 
 Upload images of wireframe to imgur and add the link here with a description of the specific wireframe. Do not include the actual image and have it render on the page.
-Wireframe|(https://imgur.com/YMZWks7)| Components|(https://imgur.com/IikaGgA)|
+Component|(https://i.imgur.com/YMZWks7.png)| WireFrame|(https://i.imgur.com/YMZWks7.png)|
 
 ## Project Schedule
 
