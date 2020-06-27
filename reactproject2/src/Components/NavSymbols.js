@@ -14,3 +14,7 @@ const NavSymbols = (props) => {
 };
 
 export default NavSymbols;
+
+// for (const property in object) {
+//     console.log(`${property}: ${object[property]}`);
+//   }

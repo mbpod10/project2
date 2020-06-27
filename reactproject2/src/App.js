@@ -7,6 +7,7 @@ import About from "./Components/About";
 import IndividualCurrency from "./Components/IndividualCurrency";
 import FormConverter from "./Components/FormConverter";
 import NavSymbols from "./Components/NavSymbols";
+import RandomFile from "./Components/RandomFile";
 
 function App() {
   const [currencyKeys, setCurrencyKeys] = useState([]);
@@ -43,6 +44,9 @@ function App() {
         <Link to="/sidenav">
           <h1>SideNav</h1>
         </Link>
+        <Link to="/randomfile">
+          <h1>random</h1>
+        </Link>
       </nav>
 
       <main>
@@ -71,6 +75,13 @@ function App() {
             path="/sidenav"
             render={(routerProps) => (
               <NavSymbols currencyKeys={currencyKeys} {...routerProps} />
+            )}
+          />
+          <Route
+            exact
+            path="/randomfile"
+            render={(routerProps) => (
+              <RandomFile currencyKeys={currencyKeys} {...routerProps} />
             )}
           />
         </Switch>
