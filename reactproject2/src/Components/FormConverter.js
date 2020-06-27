@@ -1,18 +1,27 @@
 import React, { useEffect, useState } from "react";
 
 const FormConverter = (props) => {
-  const [firstCurrency, getFirstCurrency] = useState("AUD");
-  const [secondCurrency, getSecondCurrency] = useState("AUD");
+  const [firstCurrency, getFirstCurrency] = useState("");
+  const [secondCurrency, getSecondCurrency] = useState("");
+  const [currency, getCurrency] = useState([]);
+  const [exchangeRate, setExchangeRate] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("PreventDefault");
     const makeApiCall = async () => {
       const res = await fetch(
-        `https://api.frankfurter.app/latest?to=${firstCurrency},${secondCurrency}`
+        `https://api.frankfurter.app/latest?from=${firstCurrency}`
       );
       const data = await res.json();
+      console.log(data);
       console.log(data.rates);
+      getCurrency(data.rates);
+      for (const property in currency) {
+        if (property === secondCurrency) {
+          setExchangeRate(currency[property]);
+        }
+      }
     };
     makeApiCall();
   };
@@ -26,6 +35,9 @@ const FormConverter = (props) => {
   };
 
   console.log(firstCurrency, secondCurrency);
+  console.log("currency", currency);
+  console.log(currency.secondCurrency);
+  console.log(exchangeRate);
 
   const mappedLabel = props.currencyKeys.map((element, index) => {
     return (
@@ -43,6 +55,9 @@ const FormConverter = (props) => {
         <select onChange={handleChange2}>{mappedLabel}</select>
         <input type="submit" />
       </form>
+      <h1>
+        1 {firstCurrency} = {exchangeRate} {secondCurrency}
+      </h1>
     </>
   );
 };
