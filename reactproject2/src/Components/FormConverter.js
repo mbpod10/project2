@@ -1,12 +1,20 @@
 import React, { useEffect, useState } from "react";
 
 const FormConverter = (props) => {
-  const [firstCurrency, getFirstCurrency] = useState("GBP");
-  const [secondCurrency, getSecondCurrency] = useState("USD");
+  const [firstCurrency, getFirstCurrency] = useState("AUD");
+  const [secondCurrency, getSecondCurrency] = useState("AUD");
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("clicked");
+    console.log("PreventDefault");
+    const makeApiCall = async () => {
+      const res = await fetch(
+        `https://api.frankfurter.app/latest?to=${firstCurrency},${secondCurrency}`
+      );
+      const data = await res.json();
+      console.log(data.rates);
+    };
+    makeApiCall();
   };
 
   const handleChange1 = (event) => {
@@ -17,38 +25,24 @@ const FormConverter = (props) => {
     getSecondCurrency(event.target.value);
   };
 
-  useEffect(() => {
-    const makeApiCall = async () => {
-      const res = await fetch(
-        `https://api.frankfurter.app/latest?to=${firstCurrency},${secondCurrency}`
-      );
-      const data = await res.json();
-      console.log(data);
-      console.log(data.rates);
-      console.log(data.rates.secondCurrency);
-    };
-    makeApiCall();
-  }, []);
+  console.log(firstCurrency, secondCurrency);
+
+  const mappedLabel = props.currencyKeys.map((element, index) => {
+    return (
+      <option key={index} value={element}>
+        {element}
+      </option>
+    );
+  });
 
   return (
     <>
       <h1>Currency Converter</h1>
       <form onSubmit={handleSubmit}>
-        <label for="cars">Choose a currency:</label>
-        <select onChange={handleChange1}>
-          <option value="USD">USD</option>
-          <option value="GBP">GBP</option>
-        </select>
-        <label for="cars">Choose a Currency:</label>
-        <select onChange={handleChange2}>
-          <option value="USD">USD</option>
-          <option value="GBP">GBP</option>
-        </select>
+        <select onChange={handleChange1}>{mappedLabel}</select>
+        <select onChange={handleChange2}>{mappedLabel}</select>
         <input type="submit" />
       </form>
-      <h1>
-        {firstCurrency} is equal to {secondCurrency}
-      </h1>
     </>
   );
 };

@@ -1,13 +1,30 @@
-import React from "react";
-import { Route, Link, Switch, Redirect } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Route, Link, Switch } from "react-router-dom";
 import "./App.css";
 import CurrencyList from "./Components/CurrencyList";
 import CurrencyHome from "./Components/CurrencyHome";
 import About from "./Components/About";
 import IndividualCurrency from "./Components/IndividualCurrency";
 import FormConverter from "./Components/FormConverter";
+import NavSymbols from "./Components/NavSymbols";
 
 function App() {
+  const [currencyKeys, setCurrencyKeys] = useState([]);
+  const [currency, getCurrency] = useState("");
+
+  useEffect(() => {
+    const makeApiCall = async () => {
+      const res = await fetch(`https://api.frankfurter.app/latest`);
+      const data = await res.json();
+      getCurrency(data.rates);
+      const currencyKeyArray = Object.keys(data.rates).map((element, index) => {
+        return element;
+      });
+      setCurrencyKeys(currencyKeyArray);
+    };
+    makeApiCall();
+  }, []);
+
   return (
     <div className="App">
       <nav className="nav-box">
@@ -23,7 +40,11 @@ function App() {
         <Link to="/converter">
           <h1>Currency Converter</h1>
         </Link>
+        <Link to="/sidenav">
+          <h1>SideNav</h1>
+        </Link>
       </nav>
+
       <main>
         <Switch>
           <Route exact path="/" component={CurrencyHome} />
@@ -41,7 +62,16 @@ function App() {
           <Route
             exact
             path="/converter"
-            render={(routerProps) => <FormConverter {...routerProps} />}
+            render={(routerProps) => (
+              <FormConverter currencyKeys={currencyKeys} {...routerProps} />
+            )}
+          />
+          <Route
+            exact
+            path="/sidenav"
+            render={(routerProps) => (
+              <NavSymbols currencyKeys={currencyKeys} {...routerProps} />
+            )}
           />
         </Switch>
       </main>
