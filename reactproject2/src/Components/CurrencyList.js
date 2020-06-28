@@ -48,7 +48,7 @@ const CurrencyList = () => {
   //console.log(currencyValuesArray, currencyValuesArray);
 
   return (
-    <>
+    <div>
       <h1>
         Rates Against: {symbol} ({date})
       </h1>
@@ -56,7 +56,7 @@ const CurrencyList = () => {
         <div>{currencyKeyArray} </div>
         <div>{currencyValuesArray}</div>
       </div>
-    </>
+    </div>
   );
 };
 export default CurrencyList;

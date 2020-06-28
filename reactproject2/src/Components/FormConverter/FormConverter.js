@@ -50,7 +50,7 @@ const FormConverter = (props) => {
   });
 
   return (
-    <>
+    <div>
       <h1>Currency Converter</h1>
       {/* <form onSubmit={handleSubmit}>
         <select onChange={handleChange1}>{mappedLabel}</select>
@@ -109,7 +109,7 @@ const FormConverter = (props) => {
           1 {firstCurrency} = {exchangeRate} {secondCurrency}
         </h1>
       ) : null}
-    </>
+    </div>
   );
 };
 

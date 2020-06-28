@@ -19,7 +19,7 @@ const RandomFile = (props) => {
       //}
       Object.keys(data).map((key, index) => {
         const nameArray = data[key];
-        getNameAndSymbol(nameArray);
+        getNameAndSymbol(...[nameArray]);
         return nameArray;
       });
     };
@@ -39,10 +39,10 @@ const RandomFile = (props) => {
   //console.log(newArray);
 
   return (
-    <>
+    <div>
       <h1>RandomFile</h1>
       <h1>{nameAndSymbol}</h1>
-    </>
+    </div>
   );
 };
 

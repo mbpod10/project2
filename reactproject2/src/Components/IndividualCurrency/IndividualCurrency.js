@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import * as ReactBootStrap from "react-bootstrap";
+import "./IndividualCurrency.css";
 
 const IndividualCurrency = (props) => {
   //console.log(props);
@@ -37,11 +39,15 @@ const IndividualCurrency = (props) => {
 
   // console.log("currency", currency);
 
+  // return <h1>Individual Currency</h1>;
+
   const currencyKeyArray = Object.keys(currency).map((element, index) => {
     return (
-      <h4 key={index}>
-        <Link to={`/currencies/${element}`}>{element} </Link> / {symbol}:
-      </h4>
+      <>
+        <td key={index}>
+          <Link to={`/currencies/${element}`}>{element} </Link>
+        </td>
+      </>
     );
   });
 
@@ -49,20 +55,45 @@ const IndividualCurrency = (props) => {
     return <h4 key={index}>{element}</h4>;
   });
 
-  //console.log(currencyValuesArray, currencyValuesArray);
-
   return (
-    <>
-      <h1>
-        Rates Against: {symbol} ({date})
-      </h1>
-      <div className="currency-container">
-        <div>{currencyKeyArray} </div>
-        <div>{currencyValuesArray}</div>
-      </div>
-    </>
+    <ReactBootStrap.Table striped bordered hover variant="dark">
+      <thead>
+        <tr>
+          <th>Currency</th>
+          <th>Currency</th>
+          <th>Rate</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>{currencyKeyArray}</tr>
+      </tbody>
+    </ReactBootStrap.Table>
   );
-  // return <h1>Individual Currency</h1>;
 };
-
 export default IndividualCurrency;
+
+// const currencyKeyArray = Object.keys(currency).map((element, index) => {
+//   return (
+//     <h4 key={index}>
+//       <Link to={`/currencies/${element}`}>{element} </Link> / {symbol}:
+//     </h4>
+//   );
+// });
+
+// const currencyValuesArray = Object.values(currency).map((element, index) => {
+//   return <h4 key={index}>{element}</h4>;
+// });
+
+// //console.log(currencyValuesArray, currencyValuesArray);
+
+// return (
+//   <div>
+//     <h1>
+//       Rates Against: {symbol} ({date})
+//     </h1>
+//     <div className="currency-container">
+//       <div>{currencyKeyArray} </div>
+//       <div>{currencyValuesArray}</div>
+//     </div>
+//   </div>
+// );

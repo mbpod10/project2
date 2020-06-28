@@ -4,7 +4,7 @@ import "./App.css";
 import CurrencyList from "./Components/CurrencyList";
 import CurrencyHome from "./Components/CurrencyHome";
 import About from "./Components/About";
-import IndividualCurrency from "./Components/IndividualCurrency";
+import IndividualCurrency from "./Components/IndividualCurrency/IndividualCurrency";
 import FormConverter from "./Components/FormConverter/FormConverter";
 import SideNav from "./Components/SideNav/SideNav";
 import RandomFile from "./Components/RandomFile";
@@ -83,47 +83,48 @@ function App() {
         </ReactBootStrap.Navbar.Collapse>
       </ReactBootStrap.Navbar>
 
-      <ReactBootStrap.Nav defaultActiveKey="/home" className="flex-column">
-        <SideNav currencyKeys={currencyKeys} />
-      </ReactBootStrap.Nav>
-
       <main>
-        <Switch>
-          <Route exact path="/" component={CurrencyHome} />
-          <Route exact path="/about" component={About} />
-          <Route
-            exact
-            path="/currencies/"
-            render={(routerProps) => <CurrencyList {...routerProps} />}
-          />
+        <div className="main-section">
+          <ReactBootStrap.Nav defaultActiveKey="/home" className="flex-column">
+            <SideNav currencyKeys={currencyKeys} />
+          </ReactBootStrap.Nav>
+          <Switch>
+            <Route exact path="/" component={CurrencyHome} />
+            <Route exact path="/about" component={About} />
+            <Route
+              exact
+              path="/currencies/"
+              render={(routerProps) => <CurrencyList {...routerProps} />}
+            />
 
-          <Route
-            exact
-            path="/currencies/:symbol"
-            render={(routerProps) => <IndividualCurrency {...routerProps} />}
-          />
-          <Route
-            exact
-            path="/converter"
-            render={(routerProps) => (
-              <FormConverter currencyKeys={currencyKeys} {...routerProps} />
-            )}
-          />
-          <Route
-            exact
-            path="/currencies/:symbol"
-            render={(routerProps) => (
-              <SideNav currencyKeys={currencyKeys} {...routerProps} />
-            )}
-          />
-          <Route
-            exact
-            path="/randomfile"
-            render={(routerProps) => (
-              <RandomFile currencyKeys={currencyKeys} {...routerProps} />
-            )}
-          />
-        </Switch>
+            <Route
+              exact
+              path="/currencies/:symbol"
+              render={(routerProps) => <IndividualCurrency {...routerProps} />}
+            />
+            <Route
+              exact
+              path="/converter"
+              render={(routerProps) => (
+                <FormConverter currencyKeys={currencyKeys} {...routerProps} />
+              )}
+            />
+            <Route
+              exact
+              path="/currencies/:symbol"
+              render={(routerProps) => (
+                <SideNav currencyKeys={currencyKeys} {...routerProps} />
+              )}
+            />
+            <Route
+              exact
+              path="/randomfile"
+              render={(routerProps) => (
+                <RandomFile currencyKeys={currencyKeys} {...routerProps} />
+              )}
+            />
+          </Switch>
+        </div>
       </main>
     </div>
   );
