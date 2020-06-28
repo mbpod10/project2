@@ -33,24 +33,38 @@
 .App-link {
   color: #61dafb;
 }
-.nav-box {
+/*.nav-box {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
-.sidenav {
-  height: 100%; /* 100% Full-height */
-  width: 0; /* 0 width - change this with JavaScript */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
-  left: 0;
-  background-color: #111; /* Black*/
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 60px; /* Place content 60px from the top */
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-}
 
+ .leftScreen {
+  display: flex;
+  margin-left: 100px;
+}
+.currencySymbols {
+  flex-direction: column;
+  padding: 20px;
+  overflow-y: scroll;
+  height: 70vh;
+  width: 60vh;
+  margin: auto auto 0;
+  cursor: pointer;
+}
+symbol {
+  border: 3px solid #000;
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 7px;
+  border-top-left-radius: 7px;
+  display: flex;
+  font-family: "Source Sans Pro", sans-serif;
+  justify-content: space-between;
+  margin: 3px;
+  padding-left: 60px;
+  background-color: #fff;
+} */
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
