@@ -9,7 +9,6 @@ import FormConverter from "./Components/FormConverter/FormConverter";
 import SideNav from "./Components/SideNav/SideNav";
 import RandomFile from "./Components/RandomFile";
 import * as ReactBootStrap from "react-bootstrap";
-import { Nav } from "react-bootstrap";
 
 function App() {
   const [currencyKeys, setCurrencyKeys] = useState([]);
@@ -83,31 +82,11 @@ function App() {
           </ReactBootStrap.Nav>
         </ReactBootStrap.Navbar.Collapse>
       </ReactBootStrap.Navbar>
-      return (
-      <>
-        <Nav
-          className="col-md-12 d-none d-md-block bg-light sidebar"
-          activeKey="/home"
-          onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
-        >
-          <div className="sidebar-sticky"></div>
-          <Nav.Item>
-            <Nav.Link href="/home">Active</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link eventKey="link-1">Link</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link eventKey="link-2">Link</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link eventKey="disabled" disabled>
-              Disabled
-            </Nav.Link>
-          </Nav.Item>
-        </Nav>
-      </>
-      );
+
+      <ReactBootStrap.Nav defaultActiveKey="/home" className="flex-column">
+        <SideNav currencyKeys={currencyKeys} />
+      </ReactBootStrap.Nav>
+
       <main>
         <Switch>
           <Route exact path="/" component={CurrencyHome} />
@@ -132,7 +111,7 @@ function App() {
           />
           <Route
             exact
-            path="/sidenav"
+            path="/currencies/:symbol"
             render={(routerProps) => (
               <SideNav currencyKeys={currencyKeys} {...routerProps} />
             )}
