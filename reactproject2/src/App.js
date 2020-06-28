@@ -41,11 +41,13 @@ function App() {
         <Link to="/converter">
           <h1>Currency Converter</h1>
         </Link>
-        <Link to="/sidenav">
-          <h1>SideNav</h1>
-        </Link>
         <Link to="/randomfile">
           <h1>random</h1>
+        </Link>
+      </nav>
+      <nav>
+        <Link to="/sidenav">
+          <h1>SideNav</h1>
         </Link>
       </nav>
 

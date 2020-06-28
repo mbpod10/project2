@@ -8,17 +8,32 @@ const RandomFile = (props) => {
       const res = await fetch(`https://api.frankfurter.app/currencies`);
       const data = await res.json();
       console.log("data", data);
-      for (const key in data) {
-        //const newArray = [];
-        //console.log(`${key}: ${data[key]}`);
-        const newArray = [];
-        newArray.push(`${key}: ${data[key]}`);
-        //getNameAndSymbol([`${key}: ${data[key]}`, ...nameAndSymbol]);
-        getNameAndSymbol([...newArray]);
-      }
+
+      //for (const key in data) {
+      //const newArray = [];
+      //console.log(`${key}: ${data[key]}`);
+      // const newArray = [];
+      // newArray.push(`${key}: ${data[key]}`);
+      //getNameAndSymbol([`${key}: ${data[key]}`, ...nameAndSymbol]);
+      // getNameAndSymbol([...newArray]);
+      //}
+      Object.keys(data).map((key, index) => {
+        const nameArray = getNameAndSymbol(data[key]);
+        //getNameAndSymbol(nameArray);
+        //return nameArray;
+      });
     };
     makeApiCall();
+    //getName();
   }, []);
+
+  // const getName = () => {
+  //   Object.keys(nameData).map((key, index) => {
+  //     const nameArray = nameData[key];
+  //     getNameAndSymbol(nameArray);
+  //     return nameArray;
+  //   });
+  // };
 
   console.log("Name and SymbolArray ", nameAndSymbol);
   //console.log(newArray);
