@@ -18,9 +18,9 @@ const RandomFile = (props) => {
       // getNameAndSymbol([...newArray]);
       //}
       Object.keys(data).map((key, index) => {
-        const nameArray = getNameAndSymbol(data[key]);
-        //getNameAndSymbol(nameArray);
-        //return nameArray;
+        const nameArray = data[key];
+        getNameAndSymbol(nameArray);
+        return nameArray;
       });
     };
     makeApiCall();

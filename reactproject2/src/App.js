@@ -5,10 +5,11 @@ import CurrencyList from "./Components/CurrencyList";
 import CurrencyHome from "./Components/CurrencyHome";
 import About from "./Components/About";
 import IndividualCurrency from "./Components/IndividualCurrency";
-import FormConverter from "./Components/FormConverter";
-import SideNav from "./SideNav/SideNav";
+import FormConverter from "./Components/FormConverter/FormConverter";
+import SideNav from "./Components/SideNav/SideNav";
 import RandomFile from "./Components/RandomFile";
 import * as ReactBootStrap from "react-bootstrap";
+import { Nav } from "react-bootstrap";
 
 function App() {
   const [currencyKeys, setCurrencyKeys] = useState([]);
@@ -82,7 +83,31 @@ function App() {
           </ReactBootStrap.Nav>
         </ReactBootStrap.Navbar.Collapse>
       </ReactBootStrap.Navbar>
-
+      return (
+      <>
+        <Nav
+          className="col-md-12 d-none d-md-block bg-light sidebar"
+          activeKey="/home"
+          onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
+        >
+          <div className="sidebar-sticky"></div>
+          <Nav.Item>
+            <Nav.Link href="/home">Active</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link eventKey="link-1">Link</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link eventKey="link-2">Link</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link eventKey="disabled" disabled>
+              Disabled
+            </Nav.Link>
+          </Nav.Item>
+        </Nav>
+      </>
+      );
       <main>
         <Switch>
           <Route exact path="/" component={CurrencyHome} />

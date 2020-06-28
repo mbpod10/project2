@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Nav } from "react-bootstrap";
 import "./SideNav.css";
+import { Nav } from "react-bootstrap";
 
 const SideNav = (props) => {
   const mappedKeys = props.currencyKeys.map((element, index) => {
