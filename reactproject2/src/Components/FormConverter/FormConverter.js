@@ -50,7 +50,7 @@ const FormConverter = (props) => {
   });
 
   return (
-    <div>
+    <div className="form-div">
       <h1>Currency Converter</h1>
       {/* <form onSubmit={handleSubmit}>
         <select onChange={handleChange1}>{mappedLabel}</select>

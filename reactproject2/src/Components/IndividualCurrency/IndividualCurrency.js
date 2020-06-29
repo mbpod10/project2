@@ -44,7 +44,7 @@ const IndividualCurrency = (props) => {
   const currencyKeyArray = Object.keys(currency).map((element, index) => {
     return (
       <>
-        <h4 key={index}>
+        <h4 className="table-h4" key={index}>
           <Link to={`/currencies/${element}`}>{element} </Link>
         </h4>
       </>
@@ -52,30 +52,43 @@ const IndividualCurrency = (props) => {
   });
 
   const currencyValuesArray = Object.values(currency).map((element, index) => {
-    return <h4 key={index}>{element}</h4>;
+    return (
+      <h4 className="table-h4" key={index}>
+        {element}
+      </h4>
+    );
   });
 
   const symbolArray = currencyValuesArray.map((element, index) => {
-    return <h4 key={index}>{symbol}</h4>;
+    return (
+      <h4 className="table-h4" key={index}>
+        {symbol}
+      </h4>
+    );
   });
 
   return (
-    <table className="table table-dark">
-      <thead>
-        <tr>
-          <th>Currency</th>
-          <th>Currency</th>
-          <th>Exchange Rate</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>{currencyKeyArray}</td>
-          <td>{symbolArray}</td>
-          <td>{currencyValuesArray}</td>
-        </tr>
-      </tbody>
-    </table>
+    <div className="table-div">
+      <h1 className="individual-currency-h1">
+        Rates Against: {symbol} ({date})
+      </h1>
+      <table className="table table-dark table-bordered">
+        <thead>
+          <tr>
+            <th>Currency</th>
+            <th>Base Currency</th>
+            <th>{date} Exchange Rate</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{currencyKeyArray}</td>
+            <td>{symbolArray}</td>
+            <td>{currencyValuesArray}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   );
 };
 export default IndividualCurrency;
