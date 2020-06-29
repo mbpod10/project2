@@ -9,6 +9,7 @@ import FormConverter from "./Components/FormConverter/FormConverter";
 import SideNav from "./Components/SideNav/SideNav";
 import Names from "./Components/Names/Names";
 import * as ReactBootStrap from "react-bootstrap";
+import HistoricalPricing from "./Components/HistoricalPricing/HistoricalPricing";
 
 function App() {
   const [currencyKeys, setCurrencyKeys] = useState([]);
@@ -45,9 +46,7 @@ function App() {
         bg="dark"
         variant="dark"
       >
-        <ReactBootStrap.Navbar.Brand href="/">
-          Currency
-        </ReactBootStrap.Navbar.Brand>
+        <ReactBootStrap.Navbar.Brand href="/">Home</ReactBootStrap.Navbar.Brand>
         <ReactBootStrap.Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <ReactBootStrap.Navbar.Collapse id="responsive-navbar-nav">
           <ReactBootStrap.Nav className="mr-auto">
@@ -83,8 +82,8 @@ function App() {
             </ReactBootStrap.NavDropdown>
           </ReactBootStrap.Nav>
           <ReactBootStrap.Nav>
-            <ReactBootStrap.Nav.Link href="#deets">
-              More deets
+            <ReactBootStrap.Nav.Link href="/historicalpricing">
+              Historical Pricing
             </ReactBootStrap.Nav.Link>
             <ReactBootStrap.Nav.Link eventKey={2} href="#memes">
               Dank memes
@@ -133,6 +132,17 @@ function App() {
               path="/names"
               render={(routerProps) => (
                 <Names
+                  currencyKeys={currencyKeys}
+                  nameAndSymbolArray={nameAndSymbolArray}
+                  {...routerProps}
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/historicalpricing"
+              render={(routerProps) => (
+                <HistoricalPricing
                   currencyKeys={currencyKeys}
                   nameAndSymbolArray={nameAndSymbolArray}
                   {...routerProps}

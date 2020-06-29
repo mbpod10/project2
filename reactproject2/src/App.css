@@ -39,6 +39,10 @@ main {
   display: flex;
   flex-direction: row;
 }
+
+.car-div {
+  width: 100%;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

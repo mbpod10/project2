@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 
 const Names = (props) => {
-  let tempArray = [];
-
   const symbolArray = [];
   const nameArray = [];
 
@@ -17,25 +15,35 @@ const Names = (props) => {
   console.log(symbolArray);
   console.log(nameArray);
 
-  props.nameAndSymbolArray.forEach((element, index) => {
-    tempArray.push(element.join(" = "));
-  });
-
-  const nameAndSymbol = tempArray.map((element, index) => {
+  const symbolArrayDisplay = symbolArray.map((element, index) => {
     return (
-      <h3 className="namesh3" key={index}>
+      <h4 className="table-h4" key={index}>
         {element}
-      </h3>
+      </h4>
     );
   });
 
+  const nameArrayDisplay = nameArray.map((element, index) => {
+    return (
+      <h4 className="table-h4" key={index}>
+        {element}
+      </h4>
+    );
+  });
   return (
     <div className="table-div">
-      <h1 className="individual-currency-h1">Names</h1>
+      <h1 className="individual-currency-h1">Currency Names and Symbols</h1>
       <table className="table table-dark table-bordered">
+        <thead>
+          <tr>
+            <th> Currency Symbol</th>
+            <th>Currency Name</th>
+          </tr>
+        </thead>
         <tbody>
           <tr>
-            <td>{nameAndSymbol}</td>
+            <td>{symbolArrayDisplay}</td>
+            <td>{nameArrayDisplay}</td>
           </tr>
         </tbody>
       </table>
