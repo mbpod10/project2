@@ -44,9 +44,9 @@ const IndividualCurrency = (props) => {
   const currencyKeyArray = Object.keys(currency).map((element, index) => {
     return (
       <>
-        <td key={index}>
+        <h4 key={index}>
           <Link to={`/currencies/${element}`}>{element} </Link>
-        </td>
+        </h4>
       </>
     );
   });
@@ -55,19 +55,27 @@ const IndividualCurrency = (props) => {
     return <h4 key={index}>{element}</h4>;
   });
 
+  const symbolArray = currencyValuesArray.map((element, index) => {
+    return <h4 key={index}>{symbol}</h4>;
+  });
+
   return (
-    <ReactBootStrap.Table striped bordered hover variant="dark">
+    <table className="table table-dark">
       <thead>
         <tr>
           <th>Currency</th>
           <th>Currency</th>
-          <th>Rate</th>
+          <th>Exchange Rate</th>
         </tr>
       </thead>
       <tbody>
-        <tr>{currencyKeyArray}</tr>
+        <tr>
+          <td>{currencyKeyArray}</td>
+          <td>{symbolArray}</td>
+          <td>{currencyValuesArray}</td>
+        </tr>
       </tbody>
-    </ReactBootStrap.Table>
+    </table>
   );
 };
 export default IndividualCurrency;

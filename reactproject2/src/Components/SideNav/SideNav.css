@@ -8,6 +8,7 @@
   z-index: 100;
   padding: 48px 0 0;
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1); */
+  display: table-cell;
 }
 
 .currencyNamesSymb {
@@ -16,6 +17,11 @@
   overflow-y: scroll;
   margin: auto auto 0;
   cursor: pointer;
+}
+
+.symbol {
+  border: 1px solid black;
+  padding: 5px;
 }
 
 /* .symbol {

@@ -3,8 +3,8 @@ import * as ReactBootStrap from "react-bootstrap";
 import "./FormConverter.css";
 
 const FormConverter = (props) => {
-  const [firstCurrency, getFirstCurrency] = useState("AUD");
-  const [secondCurrency, getSecondCurrency] = useState("AUD");
+  const [firstCurrency, getFirstCurrency] = useState("");
+  const [secondCurrency, getSecondCurrency] = useState("");
   const [currency, getCurrency] = useState([]);
   const [exchangeRate, setExchangeRate] = useState("");
 
