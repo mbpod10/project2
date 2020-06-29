@@ -4,21 +4,25 @@ import * as ReactBootStrap from "react-bootstrap";
 import "./IndividualCurrency.css";
 
 const IndividualCurrency = (props) => {
-  console.log(props);
+  //console.log(props);
   let symbol = props.match.params.symbol;
   const [currency, getCurrency] = useState([]);
   const [date, getDate] = useState("");
+  const [converArray, getConverArray] = useState([]);
   useEffect(() => {
     const makeApiCall = async () => {
       const res = await fetch(
         `https://api.frankfurter.app/latest?from=${symbol}`
       );
       const data = await res.json();
-      //console.log("data", data);
+      console.log("data.rates", data.rates);
+      const data2 = data.rates;
       // console.log("date", data.date);
 
       getDate(data.date);
       getCurrency(data.rates);
+      const tempArray = Object.keys(data.rates);
+      getConverArray(tempArray);
     };
     makeApiCall();
   }, []);
@@ -33,10 +37,21 @@ const IndividualCurrency = (props) => {
       //console.log("date", data.date);
       getDate(data.date);
       getCurrency(data.rates);
+      const tempArray = Object.keys(data.rates);
+      getConverArray(tempArray);
     };
     makeApiCall();
   }, [symbol]);
 
+  const ultArray = [];
+  console.log("converArray", converArray);
+  console.log("nameArray", props.nameArray);
+
+  for (let i = 0; i < converArray.length; i++) {
+    ultArray.push(converArray[i], props.nameArray[i]);
+  }
+
+  console.log("ultArray", ultArray);
   // console.log("currency", currency);
 
   // return <h1>Individual Currency</h1>;
@@ -51,13 +66,19 @@ const IndividualCurrency = (props) => {
     );
   });
 
+  const tempArray = Object.keys(currency).map((element, index) => {
+    return <>{element}</>;
+  });
+
+  //console.log("temp array", tempArray);
+
   const currencyKeyArray2 = Object.keys(currency).map((element, index) => {
     for (let i = 0; i < props.nameArray.length; i++) {
       return (
         <>
           <h4 className="table-h4" key={index}>
             <Link to={`/currencies/${element}`}>
-              {element} {props.nameArray[i]}{" "}
+              {element} {props.nameArray[i]}
             </Link>
           </h4>
         </>

@@ -27,7 +27,7 @@ function App() {
       setCurrencyKeys(currencyKeyArray);
       const res2 = await fetch(`https://api.frankfurter.app/currencies`);
       const data2 = await res2.json();
-      console.log("data2", data2);
+      //console.log("data2", data2);
       const nameArray = Object.values(data2);
       getName(nameArray);
       const tempNameAndSymbolArray = Object.entries(data2);
@@ -36,7 +36,7 @@ function App() {
     makeApiCall();
   }, []);
 
-  console.log(nameArray);
+  //console.log(nameArray);
   return (
     <div className="App">
       <ReactBootStrap.Navbar

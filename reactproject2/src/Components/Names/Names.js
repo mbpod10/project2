@@ -1,11 +1,25 @@
 import React, { useEffect, useState } from "react";
 
 const Names = (props) => {
-  console.log(props.nameAndSymbolArray);
   let tempArray = [];
-  for (let i = 0; i < props.nameAndSymbolArray.length; i++) {
-    tempArray.push(props.nameAndSymbolArray[i].join(" = "));
-  }
+
+  const symbolArray = [];
+  const nameArray = [];
+
+  props.nameAndSymbolArray.forEach((element, index) => {
+    symbolArray.push(element[0]);
+  });
+
+  props.nameAndSymbolArray.forEach((element, index) => {
+    nameArray.push(element[1]);
+  });
+
+  console.log(symbolArray);
+  console.log(nameArray);
+
+  props.nameAndSymbolArray.forEach((element, index) => {
+    tempArray.push(element.join(" = "));
+  });
 
   const nameAndSymbol = tempArray.map((element, index) => {
     return (
