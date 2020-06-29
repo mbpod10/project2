@@ -7,12 +7,14 @@ import About from "./Components/About";
 import IndividualCurrency from "./Components/IndividualCurrency/IndividualCurrency";
 import FormConverter from "./Components/FormConverter/FormConverter";
 import SideNav from "./Components/SideNav/SideNav";
-import RandomFile from "./Components/RandomFile";
+import Names from "./Components/Names/Names";
 import * as ReactBootStrap from "react-bootstrap";
 
 function App() {
   const [currencyKeys, setCurrencyKeys] = useState([]);
   const [currency, getCurrency] = useState("");
+  const [nameArray, getName] = useState([]);
+  const [nameAndSymbolArray, getNameAndSymbolArray] = useState([]);
 
   useEffect(() => {
     const makeApiCall = async () => {
@@ -23,10 +25,18 @@ function App() {
         return element;
       });
       setCurrencyKeys(currencyKeyArray);
+      const res2 = await fetch(`https://api.frankfurter.app/currencies`);
+      const data2 = await res2.json();
+      console.log("data2", data2);
+      const nameArray = Object.values(data2);
+      getName(nameArray);
+      const tempNameAndSymbolArray = Object.entries(data2);
+      getNameAndSymbolArray(tempNameAndSymbolArray);
     };
     makeApiCall();
   }, []);
 
+  console.log(nameArray);
   return (
     <div className="App">
       <ReactBootStrap.Navbar
@@ -50,8 +60,8 @@ function App() {
             <ReactBootStrap.Nav.Link href="/converter">
               Currency Converter
             </ReactBootStrap.Nav.Link>
-            <ReactBootStrap.Nav.Link href="/randomfile">
-              RandomFile
+            <ReactBootStrap.Nav.Link href="/names">
+              Names
             </ReactBootStrap.Nav.Link>
             <ReactBootStrap.NavDropdown
               title="Dropdown"
@@ -100,7 +110,9 @@ function App() {
             <Route
               exact
               path="/currencies/:symbol"
-              render={(routerProps) => <IndividualCurrency {...routerProps} />}
+              render={(routerProps) => (
+                <IndividualCurrency nameArray={nameArray} {...routerProps} />
+              )}
             />
             <Route
               exact
@@ -118,9 +130,13 @@ function App() {
             />
             <Route
               exact
-              path="/randomfile"
+              path="/names"
               render={(routerProps) => (
-                <RandomFile currencyKeys={currencyKeys} {...routerProps} />
+                <Names
+                  currencyKeys={currencyKeys}
+                  nameAndSymbolArray={nameAndSymbolArray}
+                  {...routerProps}
+                />
               )}
             />
           </Switch>

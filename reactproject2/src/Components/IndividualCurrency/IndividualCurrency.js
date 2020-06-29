@@ -4,7 +4,7 @@ import * as ReactBootStrap from "react-bootstrap";
 import "./IndividualCurrency.css";
 
 const IndividualCurrency = (props) => {
-  //console.log(props);
+  console.log(props);
   let symbol = props.match.params.symbol;
   const [currency, getCurrency] = useState([]);
   const [date, getDate] = useState("");
@@ -49,6 +49,20 @@ const IndividualCurrency = (props) => {
         </h4>
       </>
     );
+  });
+
+  const currencyKeyArray2 = Object.keys(currency).map((element, index) => {
+    for (let i = 0; i < props.nameArray.length; i++) {
+      return (
+        <>
+          <h4 className="table-h4" key={index}>
+            <Link to={`/currencies/${element}`}>
+              {element} {props.nameArray[i]}{" "}
+            </Link>
+          </h4>
+        </>
+      );
+    }
   });
 
   const currencyValuesArray = Object.values(currency).map((element, index) => {
