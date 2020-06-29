@@ -13,7 +13,12 @@ const SideNav = (props) => {
     );
   });
 
-  return <h1 className="currencyNamesSymb">{mappedKeys}</h1>;
+  return (
+    <>
+      <h3 className="nav-h3">Quick Nav</h3>
+      <h1 className="currencyNamesSymb">{mappedKeys}</h1>
+    </>
+  );
 };
 
 export default SideNav;

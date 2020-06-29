@@ -1,43 +1,24 @@
 import React, { useEffect, useState } from "react";
 
 const RandomFile = (props) => {
-  const [nameAndSymbol, getNameAndSymbol] = useState([]);
+  const [nameAndSymbolArray, getNameAndSymbol] = useState([]);
 
   useEffect(() => {
     const makeApiCall = async () => {
       const res = await fetch(`https://api.frankfurter.app/currencies`);
       const data = await res.json();
       console.log("data", data);
-
-      //for (const key in data) {
-      //const newArray = [];
-      //console.log(`${key}: ${data[key]}`);
-      // const newArray = [];
-      // newArray.push(`${key}: ${data[key]}`);
-      //getNameAndSymbol([`${key}: ${data[key]}`, ...nameAndSymbol]);
-      // getNameAndSymbol([...newArray]);
-      //}
-      Object.keys(data).map((key, index) => {
-        const nameArray = data[key];
-        getNameAndSymbol(...[nameArray]);
-        return nameArray;
-      });
+      const nameArray = Object.values(data);
+      getNameAndSymbol(nameArray);
     };
     makeApiCall();
-    //getName();
   }, []);
 
-  // const getName = () => {
-  //   Object.keys(nameData).map((key, index) => {
-  //     const nameArray = nameData[key];
-  //     getNameAndSymbol(nameArray);
-  //     return nameArray;
-  //   });
-  // };
+  const nameAndSymbol = nameAndSymbolArray.map((element, index) => {
+    return <h3 key={index}>{element}</h3>;
+  });
 
   console.log("Name and SymbolArray ", nameAndSymbol);
-  //console.log(newArray);
-
   return (
     <div>
       <h1>RandomFile</h1>

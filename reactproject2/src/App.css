@@ -29,7 +29,9 @@
   flex-direction: row;
   padding-left: 30px;
 }
-
+main {
+  background-color: teal;
+}
 .App-link {
   color: #61dafb;
 }

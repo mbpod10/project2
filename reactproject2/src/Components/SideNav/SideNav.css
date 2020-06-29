@@ -1,20 +1,15 @@
 .flex-column {
+  overflow-y: scroll;
   width: 20%;
-  /* position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  min-height: 100vh !important;
-  z-index: 100;
-  padding: 48px 0 0;
-  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1); */
+  height: 800px;
+  background-color: #aebfcf;
   display: table-cell;
 }
 
 .currencyNamesSymb {
   flex-direction: column;
   padding: 20px;
-  overflow-y: scroll;
+
   margin: auto auto 0;
   cursor: pointer;
 }
@@ -22,6 +17,11 @@
 .symbol {
   border: 1px solid black;
   padding: 5px;
+}
+
+.nav-h3 {
+  padding-top: 10px;
+  padding-bottom: 5px;
 }
 
 /* .symbol {

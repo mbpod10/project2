@@ -67,6 +67,22 @@ const IndividualCurrency = (props) => {
     );
   });
 
+  const oneArray = currencyValuesArray.map((element, index) => {
+    return (
+      <h4 className="table-h4" key={index}>
+        1
+      </h4>
+    );
+  });
+
+  const equalArray = currencyValuesArray.map((element, index) => {
+    return (
+      <h4 className="table-h4" key={index}>
+        =
+      </h4>
+    );
+  });
+
   return (
     <div className="table-div">
       <h1 className="individual-currency-h1">
@@ -75,16 +91,20 @@ const IndividualCurrency = (props) => {
       <table className="table table-dark table-bordered">
         <thead>
           <tr>
+            <th> </th>
             <th>Currency</th>
-            <th>Base Currency</th>
+            <th> </th>
             <th>{date} Exchange Rate</th>
+            <th>Base Currency</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>{currencyKeyArray}</td>
+            <td>{oneArray}</td>
             <td>{symbolArray}</td>
+            <td>{equalArray}</td>
             <td>{currencyValuesArray}</td>
+            <td>{currencyKeyArray}</td>
           </tr>
         </tbody>
       </table>
