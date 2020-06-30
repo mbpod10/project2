@@ -1,28 +1,39 @@
 import React, { useEffect, useState } from "react";
 import HistoricalPricingForm from "./HistoricalPricingForm";
 import HistoricalPriceForm from "./HistoricalPricingForm";
+import "./HistoricalPricing.css";
 
 const HistoricalPricing = (props) => {
   const [symbol, getSymbol] = useState("");
-  const [userInputDate, getUserInputDate] = useState("");
   const [euro, getEuro] = useState("");
   const [date, getDate] = useState([]);
   const [exchangeRate, getExchangeRate] = useState([]);
   const [startDate, getStartDate] = useState("");
   const [endDate, getEndDate] = useState("");
+  const [userInputYear, getUserInputYear] = useState("");
+  const [userInputDay, getUserInputDay] = useState("");
+  const [userInputMonth, getUserInputMonth] = useState("");
 
   const handleChange1 = (event) => {
     getSymbol(event);
   };
 
   const handleChange2 = (event) => {
-    getUserInputDate(event);
+    getUserInputMonth(event);
+  };
+
+  const handleChange3 = (event) => {
+    getUserInputDay(event);
+  };
+  const handleChange4 = (event) => {
+    getUserInputYear(event);
   };
   console.log("symbol", symbol);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     // console.log("prevented");
+    const userInputDate = `${userInputYear}-${userInputMonth}-${userInputDay}`;
     const makeApiCall = async () => {
       const res = await fetch(
         `https://api.frankfurter.app/${userInputDate}..?to=${symbol}`
@@ -104,40 +115,40 @@ const HistoricalPricing = (props) => {
     );
   });
   return (
-    <>
+    <div className="hisoricalDataDiv">
       <HistoricalPriceForm
         currencyKeys={props.currencyKeys}
         handleSubmit={handleSubmit}
         handleChange1={handleChange1}
         handleChange2={handleChange2}
+        handleChange3={handleChange3}
+        handleChange4={handleChange4}
       />
 
-      {userInputDate ? (
-        <div className="table-div">
-          <h1 className="individual-currency-h1">
-            Historical Data (Against The Euro)
-          </h1>
-          <table className="table table-dark table-bordered">
-            <thead>
-              <tr>
-                <th>Currency</th>
-                <th>
-                  ({startDate}) -- ({endDate})
-                </th>
-                <th>Exchange Rate</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>{euroArray}</td>
-                <td>{dateArray}</td>
-                <td>{exchangeRateArray}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      ) : null}
-    </>
+      <div className="table-div">
+        <h1 className="individual-currency-h1">
+          Historical Data (Against The Euro)
+        </h1>
+        <table className="table table-dark table-bordered">
+          <thead>
+            <tr>
+              <th>Currency</th>
+              <th>
+                ({startDate}) -- ({endDate})
+              </th>
+              <th>Exchange Rate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{euroArray}</td>
+              <td>{dateArray}</td>
+              <td>{exchangeRateArray}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   );
 };
 export default HistoricalPricing;
