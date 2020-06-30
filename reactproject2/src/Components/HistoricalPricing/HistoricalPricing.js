@@ -114,6 +114,7 @@ const HistoricalPricing = (props) => {
       </h4>
     );
   });
+
   return (
     <div className="hisoricalDataDiv">
       <HistoricalPriceForm

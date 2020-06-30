@@ -83,7 +83,7 @@ function App() {
           </ReactBootStrap.Nav>
           <ReactBootStrap.Nav>
             <ReactBootStrap.Nav.Link href="/historicalpricing">
-              Euro Historical Rate
+              Euro Historical Data
             </ReactBootStrap.Nav.Link>
             <ReactBootStrap.Nav.Link eventKey={2} href="#memes">
               Dank memes

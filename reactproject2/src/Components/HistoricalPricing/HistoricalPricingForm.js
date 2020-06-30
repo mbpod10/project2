@@ -130,6 +130,7 @@ const HistoricalPriceForm = (props) => {
         Note: returns all data points for up to 90 days. Above that, it starts
         sampling by week or month based on the breadth of the date range.
       </p>
+      <p>PULLS DATA TO CURRENT DATE</p>
       <ReactBootStrap.Form onSubmit={props.handleSubmit}>
         <ReactBootStrap.Form.Row className="align-items-center">
           <ReactBootStrap.Col xs="auto" className="my-1">
