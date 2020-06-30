@@ -32,7 +32,7 @@ const Names = (props) => {
   });
   return (
     <div className="table-div">
-      <h1 className="individual-currency-h1">Currency Names and Symbols</h1>
+      <h1 className="individual-currency-h1">Currency Names AND Symbols</h1>
       <table className="table table-dark table-bordered">
         <thead>
           <tr>
