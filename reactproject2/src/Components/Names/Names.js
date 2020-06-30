@@ -36,14 +36,14 @@ const Names = (props) => {
       <table className="table table-dark table-bordered">
         <thead>
           <tr>
-            <th> Currency Symbol</th>
-            <th>Currency Name</th>
+            <th className="nameTr"> Currency Symbol</th>
+            <th className="nameTr">Currency Name</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>{symbolArrayDisplay}</td>
-            <td>{nameArrayDisplay}</td>
+            <td className="nameTr">{symbolArrayDisplay}</td>
+            <td className="nameTr">{nameArrayDisplay}</td>
           </tr>
         </tbody>
       </table>
