@@ -1,21 +1,40 @@
 import React, { useEffect, useState } from "react";
+import HistoricalPricingForm from "./HistoricalPricingForm";
+import HistoricalPriceForm from "./HistoricalPricingForm";
 
 const HistoricalPricing = (props) => {
-  const [currencyToBeConverted, setCurrencyConverter] = useState([]);
+  const [symbol, getSymbol] = useState("");
+  const [userInputDate, getUserInputDate] = useState("2020-01-01");
   const [euro, getEuro] = useState("");
   const [date, getDate] = useState([]);
   const [exchangeRate, getExchangeRate] = useState([]);
-  useEffect(() => {
+  const [startDate, getStartDate] = useState("");
+  const [endDate, getEndDate] = useState("");
+  let symbolKey;
+
+  const handleChange1 = (event) => {
+    symbolKey = event;
+    getSymbol(event);
+  };
+  console.log("symbol", symbol);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // console.log("prevented");
     const makeApiCall = async () => {
       const res = await fetch(
-        `https://api.frankfurter.app/2020-01-01..?to=USD`
+        `https://api.frankfurter.app/${userInputDate}..?to=${symbol}`
       );
       const data = await res.json();
       //console.log(data);
       getEuro(data.base);
       const tempDate = Object.keys(data.rates);
       getDate(tempDate);
-      console.log(data.rates);
+      // console.log("tempDate", tempDate);
+      const firstDate = tempDate[0];
+      //console.log("firstDate", firstDate);
+      getStartDate(data.start_date);
+      getEndDate(data.end_date);
       const tempArray = Object.values(data.rates).map((element, index) => {
         return element;
       });
@@ -25,25 +44,44 @@ const HistoricalPricing = (props) => {
         }
       );
       const tempDataArray = [];
-      for (const property in tempExchangeRate) {
-        tempDataArray.push(tempExchangeRate[property].USD);
+      const tempSymbolArray = tempDataArray[0];
+      // console.log("tempsymbolArray", tempSymbolArray);
+      const hello = tempExchangeRate[0];
+      const hill = Object.keys(hello).map((element, index) => {
+        return element;
+      });
+      const hilly = hill.join(" ");
+      // console.log(hilly);
+
+      // console.log(hill);
+      if (tempExchangeRate.length > 0) {
+        for (const property in tempExchangeRate) {
+          //   console.log("true");
+          //   const othersym = symbol;
+          tempDataArray.push(tempExchangeRate[property][symbol]);
+        }
       }
+
+      //   for (const property in tempExchangeRate) {
+      //     tempSymbolArray.push(tempExchangeRate[0]);
+      //   }
+
+      // console.log(hello);
       //getExchangeRate(tempExchangeRate);
       //const tempExchangeRate = Object.values(data.rates.USD);
       //const tempArray = Object.values(tempExchangeRate);
       getExchangeRate(tempDataArray);
     };
     makeApiCall();
-  }, []);
-
-  console.log(euro);
-  console.log(date);
-  console.log(exchangeRate);
+  };
+  //console.log(euro);
+  //console.log(date);
+  //console.log(exchangeRate);
 
   const euroArray = date.map((element, index) => {
     return (
       <h4 className="table-h4" key={index}>
-        {euro}
+        {symbol} / {euro}
       </h4>
     );
   });
@@ -64,21 +102,24 @@ const HistoricalPricing = (props) => {
     );
   });
   return (
-    <>
-      {/* <form>
-        <form onSubmit={handleSubmit}>
-     <select onChange={handleChange1}>{mappedLabel}</select>
-      <select onChange={handleChange2}>{mappedLabel}</select> 
-        <input type="submit" /> 
-      </form> */}
+    <div>
+      <HistoricalPriceForm
+        currencyKeys={props.currencyKeys}
+        handleSubmit={handleSubmit}
+        handleChange1={handleChange1}
+      />
 
       <div className="table-div">
-        <h1 className="individual-currency-h1">Historical Data</h1>
+        <h1 className="individual-currency-h1">
+          Historical Data (Against The Euro)
+        </h1>
         <table className="table table-dark table-bordered">
           <thead>
             <tr>
               <th>Currency</th>
-              <th> Date </th>
+              <th>
+                ({startDate}) -- ({endDate})
+              </th>
               <th>Exchange Rate</th>
             </tr>
           </thead>
@@ -91,7 +132,7 @@ const HistoricalPricing = (props) => {
           </tbody>
         </table>
       </div>
-    </>
+    </div>
   );
 };
 export default HistoricalPricing;
