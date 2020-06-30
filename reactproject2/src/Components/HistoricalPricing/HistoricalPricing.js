@@ -4,17 +4,19 @@ import HistoricalPriceForm from "./HistoricalPricingForm";
 
 const HistoricalPricing = (props) => {
   const [symbol, getSymbol] = useState("");
-  const [userInputDate, getUserInputDate] = useState("2020-01-01");
+  const [userInputDate, getUserInputDate] = useState("");
   const [euro, getEuro] = useState("");
   const [date, getDate] = useState([]);
   const [exchangeRate, getExchangeRate] = useState([]);
   const [startDate, getStartDate] = useState("");
   const [endDate, getEndDate] = useState("");
-  let symbolKey;
 
   const handleChange1 = (event) => {
-    symbolKey = event;
     getSymbol(event);
+  };
+
+  const handleChange2 = (event) => {
+    getUserInputDate(event);
   };
   console.log("symbol", symbol);
 
@@ -102,37 +104,40 @@ const HistoricalPricing = (props) => {
     );
   });
   return (
-    <div>
+    <>
       <HistoricalPriceForm
         currencyKeys={props.currencyKeys}
         handleSubmit={handleSubmit}
         handleChange1={handleChange1}
+        handleChange2={handleChange2}
       />
 
-      <div className="table-div">
-        <h1 className="individual-currency-h1">
-          Historical Data (Against The Euro)
-        </h1>
-        <table className="table table-dark table-bordered">
-          <thead>
-            <tr>
-              <th>Currency</th>
-              <th>
-                ({startDate}) -- ({endDate})
-              </th>
-              <th>Exchange Rate</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>{euroArray}</td>
-              <td>{dateArray}</td>
-              <td>{exchangeRateArray}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+      {userInputDate ? (
+        <div className="table-div">
+          <h1 className="individual-currency-h1">
+            Historical Data (Against The Euro)
+          </h1>
+          <table className="table table-dark table-bordered">
+            <thead>
+              <tr>
+                <th>Currency</th>
+                <th>
+                  ({startDate}) -- ({endDate})
+                </th>
+                <th>Exchange Rate</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{euroArray}</td>
+                <td>{dateArray}</td>
+                <td>{exchangeRateArray}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      ) : null}
+    </>
   );
 };
 export default HistoricalPricing;
