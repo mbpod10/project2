@@ -45,6 +45,7 @@ function App() {
         expand="lg"
         bg="dark"
         variant="dark"
+        id="top"
       >
         <ReactBootStrap.Navbar.Brand href="/">Home</ReactBootStrap.Navbar.Brand>
         <ReactBootStrap.Navbar.Toggle aria-controls="responsive-navbar-nav" />

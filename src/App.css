@@ -60,6 +60,8 @@ main {
 .history {
   font-size: 1.65rem;
   color: white;
+  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 
 @media only screen and (min-width: 756px) {

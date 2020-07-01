@@ -12,7 +12,7 @@ const CurrencyFooter = () => {
               <h5>Back To Top</h5>
             </li>
             <li>
-              <a href="#brock">Top</a>
+              <a href="#top">Top</a>
             </li>
             <li>
               <a href="#about">About</a>
