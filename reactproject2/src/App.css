@@ -35,13 +35,15 @@ main {
 .App-link {
   color: #61dafb;
 }
-.main-section {
-  display: flex;
-  flex-direction: row;
-}
 
 .car-div {
   width: 100%;
+}
+
+.main-section {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 @keyframes App-logo-spin {
   from {
@@ -49,5 +51,12 @@ main {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media only screen and (min-width: 756px) {
+  .main-section {
+    display: flex;
+    flex-direction: row;
   }
 }

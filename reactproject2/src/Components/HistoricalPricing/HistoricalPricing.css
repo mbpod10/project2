@@ -1,3 +1,15 @@
 .hisoricalDataDiv {
   width: 100%;
 }
+.change {
+  display: none;
+}
+
+@media only screen and (min-width: 756px) {
+  .change {
+    display: inline;
+  }
+  .hisoricalDataDiv {
+    order: 2;
+  }
+}

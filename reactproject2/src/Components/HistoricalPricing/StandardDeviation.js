@@ -9,36 +9,38 @@ const StandardDeviation = (props) => {
   const [secondLower, getSecondLower] = useState("");
   const [thirdUpper, getThirdUpper] = useState("");
   const [thirdLower, getThirdLower] = useState("");
-  console.log(props.exchangeRate);
+
   const calculateStandardDeviation = () => {
     const sum = props.exchangeRate.reduce((element, index) => {
       return element + index;
     });
-    console.log("sum", sum);
+
     const average = sum / props.exchangeRate.length;
-    console.log("ave", average);
+
     getAverage(average);
     const minusAverage = props.exchangeRate.map((element, index) => {
       return element - average;
     });
-    console.log("minus ave", minusAverage);
+
     const square = minusAverage.map((element, index) => {
       return element * element;
     });
-    console.log("square", square);
+
     const sumOfSquare = square.reduce((element, index) => {
       return element + index;
     });
-    console.log("sumOfSquare", sumOfSquare);
+
     const variance = sumOfSquare * (1 / props.exchangeRate.length);
-    console.log("variance", variance);
+
     const standardDeviation = Math.sqrt(variance);
-    console.log("standard deviation", standardDeviation);
+
     getStandardDev(standardDeviation);
     const firstUpper = average + standardDeviation;
     getUpperLimit(firstUpper);
+    props.getUpperBound(firstUpper);
     const firstLower = average - standardDeviation;
     getLowerLimit(firstLower);
+    props.getLowerBound(firstLower);
     const secondUpper = firstUpper + standardDeviation;
     getSecondUpper(secondUpper);
     const secondLower = firstLower - standardDeviation;
@@ -47,15 +49,13 @@ const StandardDeviation = (props) => {
     getThirdUpper(thirdUpper);
     const thirdLower = secondLower - standardDeviation;
     getThirdLower(thirdLower);
-    console.log(
-      firstUpper,
-      firstLower
-      //   secondLower,
-      //   secondUpper,
-      //   thirdLower,
-      //   thirdUpper
-    );
+    getLowerBound();
+    getUpperBound();
   };
+
+  const getLowerBound = (event) => {};
+
+  const getUpperBound = (event) => {};
 
   return (
     <>

@@ -14,6 +14,18 @@ const HistoricalPricing = (props) => {
   const [userInputYear, getUserInputYear] = useState("");
   const [userInputDay, getUserInputDay] = useState("");
   const [userInputMonth, getUserInputMonth] = useState("");
+  const [lowerLimit, getLowerLimit] = useState("");
+  const [upperLimit, getUpperLimit] = useState("");
+
+  const getLowerBound = (event) => {
+    getLowerLimit(event);
+    console.log("lower", lowerLimit);
+  };
+
+  const getUpperBound = (event) => {
+    getUpperLimit(event);
+    console.log("upper", upperLimit);
+  };
 
   const handleChange1 = (event) => {
     getSymbol(event);
@@ -95,7 +107,7 @@ const HistoricalPricing = (props) => {
   const euroArray = date.map((element, index) => {
     return (
       <h4 className="table-h4" key={index}>
-        {symbol} / {euro}
+        {symbol} <span className="change"> / {euro} </span>
       </h4>
     );
   });
@@ -126,7 +138,14 @@ const HistoricalPricing = (props) => {
         handleChange3={handleChange3}
         handleChange4={handleChange4}
       />
-      <StandardDeviation exchangeRate={exchangeRate} endDate={endDate} />
+      <div>
+        <StandardDeviation
+          exchangeRate={exchangeRate}
+          endDate={endDate}
+          getLowerBound={getLowerBound}
+          getUpperBound={getUpperBound}
+        />
+      </div>
       {endDate ? (
         <div className="table-div">
           <h1 className="individual-currency-h1">

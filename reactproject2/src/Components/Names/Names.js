@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./Names.css";
 
 const Names = (props) => {
   const symbolArray = [];
@@ -32,18 +33,20 @@ const Names = (props) => {
   });
   return (
     <div className="table-div">
-      <h1 className="individual-currency-h1">Currency Names AND Symbols</h1>
+      <h1 className="individual-currency-h1-names">
+        Currency Names and Symbols
+      </h1>
       <table className="table table-dark table-bordered">
         <thead>
           <tr>
-            <th className="nameTr"> Currency Symbol</th>
-            <th className="nameTr">Currency Name</th>
+            <th className="nameTr"> Symbol</th>
+            <th className="nameTr">Name</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td className="nameTr">{symbolArrayDisplay}</td>
-            <td className="nameTr">{nameArrayDisplay}</td>
+            <td className="nameTr-data">{symbolArrayDisplay}</td>
+            <td className="nameTr-data">{nameArrayDisplay}</td>
           </tr>
         </tbody>
       </table>
