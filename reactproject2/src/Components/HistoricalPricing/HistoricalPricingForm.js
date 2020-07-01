@@ -125,7 +125,7 @@ const HistoricalPriceForm = (props) => {
 
   return (
     <>
-      <h1>Insert Parameters (Data Against The Euro)</h1>
+      <h1 className="history">Insert Parameters (Data Against The Euro)</h1>
       <p>
         Note: returns all data points for up to 90 days. Above that, it starts
         sampling by week or month based on the breadth of the date range.

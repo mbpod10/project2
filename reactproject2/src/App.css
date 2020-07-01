@@ -53,10 +53,21 @@ main {
     transform: rotate(360deg);
   }
 }
+.sd {
+  margin: 30px;
+  background-color: yellow;
+}
+.history {
+  font-size: 1.65rem;
+  color: white;
+}
 
 @media only screen and (min-width: 756px) {
   .main-section {
     display: flex;
     flex-direction: row;
+  }
+  .history {
+    font-size: 3rem;
   }
 }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, render } from "react";
 import * as ReactBootStrap from "react-bootstrap";
 import ControlledCarousel from "react-bootstrap";
+import "./CurrencyHome.css";
 
 const CurrencyHome = () => {
   return (

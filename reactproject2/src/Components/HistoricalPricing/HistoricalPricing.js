@@ -148,7 +148,7 @@ const HistoricalPricing = (props) => {
       </div>
       {endDate ? (
         <div className="table-div">
-          <h1 className="individual-currency-h1">
+          <h1 className="individual-currency-h1 ">
             Historical Data (Against The Euro)
           </h1>
           <table className="table table-dark table-bordered">

@@ -61,6 +61,7 @@ const StandardDeviation = (props) => {
     <>
       {props.endDate ? (
         <input
+          className="sd"
           type="button"
           onClick={calculateStandardDeviation}
           value="Calculate Standard Deviation"

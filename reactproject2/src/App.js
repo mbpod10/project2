@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Route, Link, Switch } from "react-router-dom";
 import "./App.css";
 import CurrencyList from "./Components/CurrencyList";
-import CurrencyHome from "./Components/CurrencyHome";
+import CurrencyHome from "./Components/Home/CurrencyHome";
 import About from "./Components/About";
 import IndividualCurrency from "./Components/IndividualCurrency/IndividualCurrency";
 import FormConverter from "./Components/FormConverter/FormConverter";
@@ -10,7 +10,7 @@ import SideNav from "./Components/SideNav/SideNav";
 import Names from "./Components/Names/Names";
 import * as ReactBootStrap from "react-bootstrap";
 import HistoricalPricing from "./Components/HistoricalPricing/HistoricalPricing";
-
+import CurrencyFooter from "./Components/CurrencyFooter/CurrencyFooter";
 function App() {
   const [currencyKeys, setCurrencyKeys] = useState([]);
   const [currency, getCurrency] = useState("");
@@ -152,6 +152,9 @@ function App() {
           </Switch>
         </div>
       </main>
+      <footer>
+        <CurrencyFooter />
+      </footer>
     </div>
   );
 }
