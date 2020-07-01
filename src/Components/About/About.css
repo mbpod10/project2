@@ -1,0 +1,13 @@
+.about-div {
+  width: 100%;
+}
+.jumbo {
+  margin: 0;
+  background-color: rgba(109, 189, 226, 0.842);
+}
+
+@media only screen and (min-width: 756px) {
+  .main-section .about-div {
+    order: 2;
+  }
+}

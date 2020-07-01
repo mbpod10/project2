@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Route, Link, Switch } from "react-router-dom";
 import "./App.css";
-import CurrencyList from "./Components/CurrencyList";
+
 import CurrencyHome from "./Components/Home/CurrencyHome";
-import About from "./Components/About";
+import About from "./Components/About/About";
 import IndividualCurrency from "./Components/IndividualCurrency/IndividualCurrency";
 import FormConverter from "./Components/FormConverter/FormConverter";
 import SideNav from "./Components/SideNav/SideNav";
@@ -47,23 +47,19 @@ function App() {
         variant="dark"
         id="top"
       >
-        <ReactBootStrap.Navbar.Brand href="/">Home</ReactBootStrap.Navbar.Brand>
+        {/* <ReactBootStrap.Navbar.Brand href="/">Home</ReactBootStrap.Navbar.Brand> */}
         <ReactBootStrap.Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <ReactBootStrap.Navbar.Collapse id="responsive-navbar-nav">
           <ReactBootStrap.Nav className="mr-auto">
-            <ReactBootStrap.Nav.Link href="/about">
-              About
-            </ReactBootStrap.Nav.Link>
-            <ReactBootStrap.Nav.Link href="/currencies/">
-              Currency
+            <ReactBootStrap.Nav.Link href="/">Home</ReactBootStrap.Nav.Link>
+            <ReactBootStrap.Nav.Link href="/names">
+              Names
             </ReactBootStrap.Nav.Link>
             <ReactBootStrap.Nav.Link href="/converter">
               Currency Converter
             </ReactBootStrap.Nav.Link>
-            <ReactBootStrap.Nav.Link href="/names">
-              Names
-            </ReactBootStrap.Nav.Link>
-            <ReactBootStrap.NavDropdown
+
+            {/* <ReactBootStrap.NavDropdown
               title="Dropdown"
               id="collasible-nav-dropdown"
             >
@@ -80,15 +76,15 @@ function App() {
               <ReactBootStrap.NavDropdown.Item href="#action/3.4">
                 Separated link
               </ReactBootStrap.NavDropdown.Item>
-            </ReactBootStrap.NavDropdown>
+            </ReactBootStrap.NavDropdown> */}
           </ReactBootStrap.Nav>
           <ReactBootStrap.Nav>
             <ReactBootStrap.Nav.Link href="/historicalpricing">
               Euro Historical Data
             </ReactBootStrap.Nav.Link>
-            <ReactBootStrap.Nav.Link eventKey={2} href="#memes">
+            {/* <ReactBootStrap.Nav.Link eventKey={2} href="#memes">
               Dank memes
-            </ReactBootStrap.Nav.Link>
+            </ReactBootStrap.Nav.Link> */}
           </ReactBootStrap.Nav>
         </ReactBootStrap.Navbar.Collapse>
       </ReactBootStrap.Navbar>
@@ -99,14 +95,8 @@ function App() {
             <SideNav currencyKeys={currencyKeys} />
           </ReactBootStrap.Nav>
           <Switch>
-            <Route exact path="/" component={CurrencyHome} />
-            <Route exact path="/about" component={About} />
-            <Route
-              exact
-              path="/currencies/"
-              render={(routerProps) => <CurrencyList {...routerProps} />}
-            />
-
+            {/* <Route exact path="/" component={CurrencyHome} /> */}
+            <Route exact path="/" component={About} />
             <Route
               exact
               path="/currencies/:symbol"

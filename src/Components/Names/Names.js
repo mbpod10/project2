@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Names.css";
+import { Link } from "react-router-dom";
 
 const Names = (props) => {
   const symbolArray = [];
@@ -19,7 +20,7 @@ const Names = (props) => {
   const symbolArrayDisplay = symbolArray.map((element, index) => {
     return (
       <h4 className="table-h4" key={index}>
-        {element}
+        <Link to={`/currencies/${element}`}>{element} </Link>
       </h4>
     );
   });
