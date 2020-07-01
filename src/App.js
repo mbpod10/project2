@@ -47,7 +47,7 @@ function App() {
         variant="dark"
         id="top"
       >
-        {/* <ReactBootStrap.Navbar.Brand href="/">Home</ReactBootStrap.Navbar.Brand> */}
+        <ReactBootStrap.Navbar.Brand href="/"></ReactBootStrap.Navbar.Brand>
         <ReactBootStrap.Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <ReactBootStrap.Navbar.Collapse id="responsive-navbar-nav">
           <ReactBootStrap.Nav className="mr-auto">
@@ -60,7 +60,9 @@ function App() {
             <Link className="nav-link" to="/converter">
               Currency Converter
             </Link>
-
+            {/* <ReactBootStrap.Nav.Link href="/converter">
+              Currency Converter
+            </ReactBootStrap.Nav.Link> */}
             {/* <ReactBootStrap.NavDropdown
               title="Dropdown"
               id="collasible-nav-dropdown"

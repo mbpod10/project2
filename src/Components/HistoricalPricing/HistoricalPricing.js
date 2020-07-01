@@ -3,6 +3,7 @@ import HistoricalPricingForm from "./HistoricalPricingForm";
 import HistoricalPriceForm from "./HistoricalPricingForm";
 import "./HistoricalPricing.css";
 import StandardDeviation from "./StandardDeviation";
+import LineChart from "./LineChart";
 
 const HistoricalPricing = (props) => {
   const [symbol, getSymbol] = useState("");
@@ -147,29 +148,34 @@ const HistoricalPricing = (props) => {
         />
       </div>
       {endDate ? (
-        <div className="table-div">
-          <h1 className="individual-currency-h1 ">
-            Historical Data (Against The Euro)
-          </h1>
-          <table className="table table-dark table-bordered">
-            <thead>
-              <tr>
-                <th>Currency</th>
-                <th>
-                  ({startDate}) -- ({endDate})
-                </th>
-                <th>Exchange Rate</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>{euroArray}</td>
-                <td>{dateArray}</td>
-                <td>{exchangeRateArray}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <>
+          <div>
+            <LineChart exchangeRate={exchangeRate} date={date} />
+          </div>
+          <div className="table-div">
+            <h1 className="individual-currency-h1 ">
+              Historical Data (Against The Euro)
+            </h1>
+            <table className="table table-dark table-bordered">
+              <thead>
+                <tr>
+                  <th>Currency</th>
+                  <th>
+                    ({startDate}) -- ({endDate})
+                  </th>
+                  <th>Exchange Rate</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{euroArray}</td>
+                  <td>{dateArray}</td>
+                  <td>{exchangeRateArray}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </>
       ) : null}
     </div>
   );
