@@ -51,7 +51,9 @@ function App() {
         <ReactBootStrap.Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <ReactBootStrap.Navbar.Collapse id="responsive-navbar-nav">
           <ReactBootStrap.Nav className="mr-auto">
-            <ReactBootStrap.Nav.Link href="/">Home</ReactBootStrap.Nav.Link>
+            <Link className="nav-link" to="/">
+              Home
+            </Link>
             <Link className="nav-link" to="/names">
               Names
             </Link>
