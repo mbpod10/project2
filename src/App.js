@@ -52,12 +52,12 @@ function App() {
         <ReactBootStrap.Navbar.Collapse id="responsive-navbar-nav">
           <ReactBootStrap.Nav className="mr-auto">
             <ReactBootStrap.Nav.Link href="/">Home</ReactBootStrap.Nav.Link>
-            <ReactBootStrap.Nav.Link href="/names">
+            <Link className="nav-link" to="/names">
               Names
-            </ReactBootStrap.Nav.Link>
-            <ReactBootStrap.Nav.Link href="/converter">
+            </Link>
+            <Link className="nav-link" to="/converter">
               Currency Converter
-            </ReactBootStrap.Nav.Link>
+            </Link>
 
             {/* <ReactBootStrap.NavDropdown
               title="Dropdown"
@@ -79,9 +79,9 @@ function App() {
             </ReactBootStrap.NavDropdown> */}
           </ReactBootStrap.Nav>
           <ReactBootStrap.Nav>
-            <ReactBootStrap.Nav.Link href="/historicalpricing">
+            <Link className="nav-link" to="/historicalpricing">
               Euro Historical Data
-            </ReactBootStrap.Nav.Link>
+            </Link>
             {/* <ReactBootStrap.Nav.Link eventKey={2} href="#memes">
               Dank memes
             </ReactBootStrap.Nav.Link> */}
