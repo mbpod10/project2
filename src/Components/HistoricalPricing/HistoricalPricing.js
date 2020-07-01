@@ -4,6 +4,7 @@ import HistoricalPriceForm from "./HistoricalPricingForm";
 import "./HistoricalPricing.css";
 import StandardDeviation from "./StandardDeviation";
 import LineChart from "./LineChart";
+// import ".App.css";
 
 const HistoricalPricing = (props) => {
   const [symbol, getSymbol] = useState("");
@@ -149,7 +150,7 @@ const HistoricalPricing = (props) => {
       </div>
       {endDate ? (
         <>
-          <div>
+          <div className="chart">
             <LineChart exchangeRate={exchangeRate} date={date} />
           </div>
           <div className="table-div">
