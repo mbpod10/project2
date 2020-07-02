@@ -14,9 +14,6 @@ const Names = (props) => {
     nameArray.push(element[1]);
   });
 
-  console.log(symbolArray);
-  console.log(nameArray);
-
   const symbolArrayDisplay = symbolArray.map((element, index) => {
     return (
       <h4 className="table-h4" key={index}>

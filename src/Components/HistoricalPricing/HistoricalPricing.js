@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import HistoricalPricingForm from "./HistoricalPricingForm";
 import HistoricalPriceForm from "./HistoricalPricingForm";
 import "./HistoricalPricing.css";
 import StandardDeviation from "./StandardDeviation";
 import LineChart from "./LineChart";
-// import ".App.css";
 
 const HistoricalPricing = (props) => {
   const [symbol, getSymbol] = useState("");
@@ -21,12 +19,10 @@ const HistoricalPricing = (props) => {
 
   const getLowerBound = (event) => {
     getLowerLimit(event);
-    console.log("lower", lowerLimit);
   };
 
   const getUpperBound = (event) => {
     getUpperLimit(event);
-    console.log("upper", upperLimit);
   };
 
   const handleChange1 = (event) => {
@@ -43,24 +39,22 @@ const HistoricalPricing = (props) => {
   const handleChange4 = (event) => {
     getUserInputYear(event);
   };
-  console.log("symbol", symbol);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // console.log("prevented");
     const userInputDate = `${userInputYear}-${userInputMonth}-${userInputDay}`;
     const makeApiCall = async () => {
       const res = await fetch(
         `https://api.frankfurter.app/${userInputDate}..?to=${symbol}`
       );
       const data = await res.json();
-      //console.log(data);
+
       getEuro(data.base);
       const tempDate = Object.keys(data.rates);
       getDate(tempDate);
-      // console.log("tempDate", tempDate);
+
       const firstDate = tempDate[0];
-      //console.log("firstDate", firstDate);
+
       getStartDate(data.start_date);
       getEndDate(data.end_date);
       const tempArray = Object.values(data.rates).map((element, index) => {
@@ -73,38 +67,23 @@ const HistoricalPricing = (props) => {
       );
       const tempDataArray = [];
       const tempSymbolArray = tempDataArray[0];
-      // console.log("tempsymbolArray", tempSymbolArray);
+
       const hello = tempExchangeRate[0];
       const hill = Object.keys(hello).map((element, index) => {
         return element;
       });
       const hilly = hill.join(" ");
-      // console.log(hilly);
 
-      // console.log(hill);
       if (tempExchangeRate.length > 0) {
         for (const property in tempExchangeRate) {
-          //   console.log("true");
-          //   const othersym = symbol;
           tempDataArray.push(tempExchangeRate[property][symbol]);
         }
       }
 
-      //   for (const property in tempExchangeRate) {
-      //     tempSymbolArray.push(tempExchangeRate[0]);
-      //   }
-
-      // console.log(hello);
-      //getExchangeRate(tempExchangeRate);
-      //const tempExchangeRate = Object.values(data.rates.USD);
-      //const tempArray = Object.values(tempExchangeRate);
       getExchangeRate(tempDataArray);
     };
     makeApiCall();
   };
-  //console.log(euro);
-  //console.log(date);
-  //console.log(exchangeRate);
 
   const euroArray = date.map((element, index) => {
     return (

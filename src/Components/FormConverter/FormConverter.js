@@ -10,14 +10,13 @@ const FormConverter = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("PreventDefault");
+
     const makeApiCall = async () => {
       const res = await fetch(
         `https://api.frankfurter.app/latest?from=${firstCurrency}`
       );
       const data = await res.json();
-      //   console.log(data);
-      //   console.log(data.rates);
+
       getCurrency(data.rates);
       for (const property in currency) {
         if (property === secondCurrency) {
@@ -36,11 +35,6 @@ const FormConverter = (props) => {
     getSecondCurrency(event.target.value);
   };
 
-  //   console.log(firstCurrency, secondCurrency);
-  //   console.log("currency", currency);
-  //   console.log(currency.secondCurrency);
-  //   console.log(exchangeRate);
-
   const mappedLabel = props.currencyKeys.map((element, index) => {
     return (
       <option key={index} value={element}>
@@ -52,11 +46,7 @@ const FormConverter = (props) => {
   return (
     <div className="form-div">
       <h1>Currency Converter</h1>
-      {/* <form onSubmit={handleSubmit}>
-        <select onChange={handleChange1}>{mappedLabel}</select>
-        <select onChange={handleChange2}>{mappedLabel}</select>
-        <input type="submit" />
-      </form> */}
+
       <ReactBootStrap.Form onSubmit={handleSubmit}>
         <ReactBootStrap.Form.Row className="align-items-center">
           <ReactBootStrap.Col xs="auto" className="my-1">

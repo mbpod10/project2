@@ -28,7 +28,6 @@ function App() {
       setCurrencyKeys(currencyKeyArray);
       const res2 = await fetch(`https://api.frankfurter.app/currencies`);
       const data2 = await res2.json();
-      //console.log("data2", data2);
       const nameArray = Object.values(data2);
       getName(nameArray);
       const tempNameAndSymbolArray = Object.entries(data2);
@@ -37,7 +36,6 @@ function App() {
     makeApiCall();
   }, []);
 
-  //console.log(nameArray);
   return (
     <div className="App">
       <ReactBootStrap.Navbar
@@ -60,35 +58,11 @@ function App() {
             <Link className="nav-link" to="/converter">
               Currency Converter
             </Link>
-            {/* <ReactBootStrap.Nav.Link href="/converter">
-              Currency Converter
-            </ReactBootStrap.Nav.Link> */}
-            {/* <ReactBootStrap.NavDropdown
-              title="Dropdown"
-              id="collasible-nav-dropdown"
-            >
-              <ReactBootStrap.NavDropdown.Item href="#action/3.1">
-                Action
-              </ReactBootStrap.NavDropdown.Item>
-              <ReactBootStrap.NavDropdown.Item href="#action/3.2">
-                Another action
-              </ReactBootStrap.NavDropdown.Item>
-              <ReactBootStrap.NavDropdown.Item href="#action/3.3">
-                Something
-              </ReactBootStrap.NavDropdown.Item>
-              <ReactBootStrap.NavDropdown.Divider />
-              <ReactBootStrap.NavDropdown.Item href="#action/3.4">
-                Separated link
-              </ReactBootStrap.NavDropdown.Item>
-            </ReactBootStrap.NavDropdown> */}
           </ReactBootStrap.Nav>
           <ReactBootStrap.Nav>
             <Link className="nav-link" to="/historicalpricing">
               Euro Historical Data
             </Link>
-            {/* <ReactBootStrap.Nav.Link eventKey={2} href="#memes">
-              Dank memes
-            </ReactBootStrap.Nav.Link> */}
           </ReactBootStrap.Nav>
         </ReactBootStrap.Navbar.Collapse>
       </ReactBootStrap.Navbar>
@@ -99,7 +73,6 @@ function App() {
             <SideNav currencyKeys={currencyKeys} />
           </ReactBootStrap.Nav>
           <Switch>
-            {/* <Route exact path="/" component={CurrencyHome} /> */}
             <Route exact path="/" component={About} />
             <Route
               exact
