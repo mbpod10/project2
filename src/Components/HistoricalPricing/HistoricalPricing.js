@@ -130,7 +130,11 @@ const HistoricalPricing = (props) => {
       {endDate ? (
         <>
           <div className="chart">
-            <LineChart exchangeRate={exchangeRate} date={date} />
+            <LineChart
+              exchangeRate={exchangeRate}
+              date={date}
+              symbol={symbol}
+            />
           </div>
           <div className="table-div">
             <h1 className="individual-currency-h1 ">

@@ -58,13 +58,13 @@ Component|(https://i.imgur.com/YMZWks7.png)| WireFrame|(https://i.imgur.com/UXZQ
 
 | Day   | Deliverable                                        | Status     |
 | ----- | -------------------------------------------------- | ---------- |
-| Day 1 | Project Description                                | inComplete |
-| Day 1 | Wireframes / Priority Matrix / Timeline /WorkSheet | inComplete |
-| Day 1 | Get Data To Render Responsive                      | inComplete |
-| Day 2 | Get Links To Different Currencies                  | inComplete |
-| Day 3 | Core Application Structure (HTML, CSS, etc.)       | inComplete |
-| Day 4 | MVP & Bug Fixes                                    | inComplete |
-| Day 5 | Final Touches                                      | inComplete |
+| Day 1 | Project Description                                | Complete   |
+| Day 1 | Wireframes / Priority Matrix / Timeline /WorkSheet | Complete   |
+| Day 1 | Get Data To Render Responsive                      | Complete   |
+| Day 2 | Get Links To Different Currencies                  | Complete   |
+| Day 3 | Core Application Structure (HTML, CSS, etc.)       | Complete   |
+| Day 4 | MVP & Bug Fixes                                    | Complete   |
+| Day 5 | Final Touches                                      | Complete   |
 | Day 6 | Present                                            | incomplete |
 
 ### MVP/PostMVP - 5min
@@ -103,20 +103,20 @@ The functionality will then be divided into two separate lists: MPV and PostMVP.
 
 | Component                          | Priority | Estimated Time | Actual Time Invetsted | Time |
 | ---------------------------------- | :------: | :------------: | :-------------------: | :--: |
-| API Data Render                    |    H     |     10hrs      |                       |  NA  |
-| Skeleton HTML                      |    H     |      3hr'      |                       |  NA  |
-| Skeleton CSS for Mobile            |    H     |     3hrs '     |                       |  NA  |
-| Hamburger                          |    H     |      1hr       |                       |  NA  |
-| Individual Currency Render         |    H     |     3hr '      |                       |  NA  |
-| Regular Nav                        |    H     |      H '       |                       |  NA  |
-| Adding Form                        |    H     |     3hr '      |                       |  NA  |
-| Other sections and flex            |    M     |     4hr '      |                       |  NA  |
-| Country & Currency Name            |    H     |     3hrs '     |                       |  NA  |
-| Responsive                         |    H     |     3hr '      |                       |  NA  |
-| Social Media Icons                 |    L     |     1hr '      |                       |  NA  |
-| Have KEY AND VALUE RENDER TOGETHER |    M     |     5hrs '     |                       |  NA  |
-| Styling                            |    M     |     5hrs '     |                       |  NA  |
-| Total                              |    H     |     45hrs      |                       | -hrs |
+| API Data Render                    |    H     |     10hrs      |          8hr          |  NA  |
+| Skeleton HTML                      |    H     |      3hr'      |          4hr          |  NA  |
+| Skeleton CSS for Mobile            |    H     |     3hrs '     |          5hr          |  NA  |
+| Hamburger                          |    H     |      1hr       |          3hr          |  NA  |
+| Individual Currency Render         |    H     |     3hr '      |          5hr          |  NA  |
+| Regular Nav                        |    H     |      H '       |          3hr          |  NA  |
+| Adding Form                        |    H     |     3hr '      |          6hr          |  NA  |
+| Other sections and flex            |    M     |     4hr '      |          4hr          |  NA  |
+| Country & Currency Name            |    H     |     3hrs '     |          3hr          |  NA  |
+| Responsive                         |    H     |     3hr '      |          5hr          |  NA  |
+| Social Media Icons                 |    L     |     1hr '      |           -           |  NA  |
+| Have KEY AND VALUE RENDER TOGETHER |    M     |     5hrs '     |          7hr          |  NA  |
+| Styling                            |    M     |     5hrs '     |          7hr          |  NA  |
+| Total                              |    H     |     45hrs      |         60hr          | -hrs |
 
 | React Componentss        |                       Description                        |
 | ------------------------ | :------------------------------------------------------: |
@@ -147,22 +147,53 @@ The functionality will then be divided into two separate lists: MPV and PostMVP.
 
 ## Additional Libraries
 
-JQuery, ReactStrap
+React BootStrap, react-chartjs-2
 
 ## Code Snippet
 
-```
+I am most proud of the entire Euro historical exchange rate page
+code snippet most proud of:
 
 ```
+ const handleChange2 = (event) => {
+    let concat = event.target.value;
+    if (event.target.value < 10) {
+      concat = "0" + event.target.value;
+      props.handleChange2(concat);
+    } else {
+      props.handleChange2(concat);
+    }
+  };
+  const handleChange3 = (event) => {
+    let concat = event.target.value;
+    if (event.target.value < 10) {
+      concat = "0" + event.target.value;
+      props.handleChange3(concat);
+    } else {
+      props.handleChange3(concat);
+    }
+  };
+
+```
+
+The way the API was set up, the parameters to access a date in the Euro Historical Pricing was to have it render as '2020-01-01' and JSX would not allow numbers such as 01 to be hardcoded so I had to concatinate in order for the API to get the correct date!
 
 ## Issues and Resolutions
 
-#### SAMPLE.....
-
-NONE
 **ERROR**:
+
+CONSTANT ERRORS OF CONSOLE LOGS THAT DISPLAYED SUCH AS
+
+```
+[]
+```
+
 **RESOLUTION**:
+simply because the API was incredibily difficult to render data from. It took countless hours and many different combinations to get the data to render despite the fact that it appeared it should have worked.
 
-```
+**ERROR**:
 
-```
+When launching my app, the <Nav.Link/> tag was not working because of BootStrap.
+
+**RESOLUTION**:
+BootStrap wanted an href="" in order to switch between pages when I needed a <Link>. The href would actually take you to a different webpage which was not what we wanated. Therefore, I simpy substituted the <Nav.Link> for a <Link> tag and added in the BootStrap class.

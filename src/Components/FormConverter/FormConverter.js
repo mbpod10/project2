@@ -10,7 +10,6 @@ const FormConverter = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
     const makeApiCall = async () => {
       const res = await fetch(
         `https://api.frankfurter.app/latest?from=${firstCurrency}`

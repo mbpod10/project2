@@ -97,24 +97,18 @@ const HistoricalPriceForm = (props) => {
   const handleChange2 = (event) => {
     let concat = event.target.value;
     if (event.target.value < 10) {
-      console.log("yes");
       concat = "0" + event.target.value;
       props.handleChange2(concat);
-      console.log(concat);
     } else {
-      console.log("no");
       props.handleChange2(concat);
     }
   };
   const handleChange3 = (event) => {
     let concat = event.target.value;
     if (event.target.value < 10) {
-      console.log("yes");
       concat = "0" + event.target.value;
       props.handleChange3(concat);
-      console.log(concat);
     } else {
-      console.log("no");
       props.handleChange3(concat);
     }
   };

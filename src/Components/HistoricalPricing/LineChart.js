@@ -6,7 +6,12 @@ const LineChart = (props) => {
     labels: props.date,
     datasets: [
       {
-        label: "Exchange Rate Against The Euro",
+        label:
+          "Exchange Rate Of (x) " +
+          props.symbol +
+          " = 1 Euro (Higher Rates Means " +
+          props.symbol +
+          " Is Less Valuable)",
         data: props.exchangeRate,
       },
     ],
