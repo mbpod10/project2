@@ -79,7 +79,6 @@ const HistoricalPricing = (props) => {
           tempDataArray.push(tempExchangeRate[property][symbol]);
         }
       }
-
       getExchangeRate(tempDataArray);
     };
     makeApiCall();

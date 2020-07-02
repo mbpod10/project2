@@ -125,6 +125,7 @@ const HistoricalPriceForm = (props) => {
         sampling by week or month based on the breadth of the date range.
       </p>
       <p>PULLS DATA TO CURRENT DATE</p>
+      <p>BGN Data Not Working</p>
       <ReactBootStrap.Form onSubmit={props.handleSubmit}>
         <ReactBootStrap.Form.Row className="align-items-center">
           <ReactBootStrap.Col xs="auto" className="my-1">
